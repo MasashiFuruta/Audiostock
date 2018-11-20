@@ -35,6 +35,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'slim-rails'
 gem 'html2slim'
+gem 'ancestry'
+
 group :development do
   gem 'pry-rails'
   gem 'pry-byebug'
