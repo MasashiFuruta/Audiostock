@@ -1,6 +1,7 @@
 class Web::Categories::BgmController < ApplicationController
   def index
-    @roots, @children = Category.category_tree("bgm")
+    @category = "bgm"
+    @node = Category.find_by_name(@category)
     render :template => 'web/categories/index'
   end
 

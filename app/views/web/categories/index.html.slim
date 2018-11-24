@@ -1,29 +1,21 @@
 .column-sidebar-left
   .column-sidebar-left-side
     .column-sidebar-left-inner
-      p.column-sidebar-left-title
-        .list-hierarchy
-          - if @id != nil
-            ul
-              li
-                = @root.name
-                - @to_node.each do |elm|
-                  ul
-                    li.line-htphen
-                      = link_to "#{elm.name}"
-                      - if @children != nil
-                        - @children.each do |child|
-                          ul
-                            li.line-hyphen
-                              = link_to "#{child.name}"
-          - else
-            ul
-              li
-                - @roots.each do |root|
-                  = root.name
-                  - if @children != nil
-                    ul
-                      - @children.each do |child|
-                        li.line-hyphen
-                          = link_to "#{child.name}", @id
+      p.column-sidebar-left-title カテゴリー
+      nav.list-hierarchy
+        - @node.children.each do |c1|
+          ul
+            li
+              = c1.name
+              - c1.children.each do |c2|
+                ul
+                  li.line-hyphen
+                    - if @category == "bgm"
+                      =link_to c2.name, web_bgm_url(c2)
+                    - elsif @category == "se"
+                      /=link_to c2.name, web_se_url(c2)
+                    - elsif @category == "voice"
+                      /=link_to c2.name, web_voice_url(c2)
+                    - elsif @category == "vocal"
+                      =link_to c2.name, web_vocal_url(c2)
 
