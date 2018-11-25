@@ -1,0 +1,9 @@
+.column-sidebar-left
+  .column-sidebar-left-side
+    .column-sidebar-left-inner
+      p.column-sidebar-left-title カテゴリー
+      nav.list-hierarchy
+        ul
+          li
+            = @root.name
+            #category_tree data-hoge-id="#{@to_node}"
