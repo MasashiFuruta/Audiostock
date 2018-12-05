@@ -7,10 +7,13 @@
 #   Character.create([name: 'Luke', movie: movies.first)
 
 # Categoryテーブル
+# 階層の深さ = 0
 bgm, se, voice, vocal = Category.create([{name: "bgm"}, {name: "se"}, {name: "voice"}, {name: "vocal"}])
 
+# 階層の深さ = 1
 use, instrument, genre, image = bgm.children.create([{name: "用途"}, {name: "楽器"}, {name: "ジャンル"}, {name: "イメージ"}])
 
+# 階層の深さ = 2
 drama, video, game, geme_music, wedding, event, store = use.children.create([
   {name: "劇"},
   {name: "映像"},
@@ -46,7 +49,7 @@ genre.children.create([
   {name: "ファンク"}
 ])
 
-image.children.create([
+seasons, feeling, atmosphere, work, oneday, place = image.children.create([
   {name: "季節"},
   {name: "感情・フィーリング"},
   {name: "雰囲気"},
@@ -55,6 +58,7 @@ image.children.create([
   {name: "場所"}
 ])
 
+# 階層の深さ 3
 drama.children.create([
   {name: "時代劇"},
   {name: "ミュージカル"}
@@ -135,4 +139,99 @@ store.children.create([
   {name: "カフェ・レストラン店舗"},
   {name: "カジノ"},
   {name: "神社"}
+])
+
+seasons.children.create([
+  {name: "春"},
+  {name: "夏"},
+  {name: "秋"},
+  {name: "冬"},
+  {name: "ハロウィン"}
+])
+
+feeling.children.create([
+  {name: "楽しい"},
+  {name: "悲しい"},
+  {name: "切ない"},
+  {name: "怖い"},
+  {name: "怒り"},
+  {name: "わくわく"},
+  {name: "ドッキリ"},
+  {name: "お笑い"},
+  {name: "かっこいい"},
+  {name: "ノリノリ"}
+])
+
+violent, gentle, dark, strange, romantic, fantagy, excitement, illusion, future, \
+tention, nervous, tension, magnificent, uptempo, slow, boost, mistery, somethingelse \
+= atmosphere.children.create([
+  {name: "激しい"},
+  {name: "穏やか・明るい"},
+  {name: "暗い"},
+  {name: "奇妙"},
+  {name: "ロマンチック"},
+  {name: "ファンタジー"},
+  {name: "感動的"},
+  {name: "幻想的"},
+  {name: "近未来的"},
+  {name: "緊張感"},
+  {name: "緊迫"},
+  {name: "壮大"},
+  {name: "アップテンポ"},
+  {name: "ゆっくり"},
+  {name: "盛り上がる"},
+  {name: "ミステリー"},
+  {name: "その他"}
+])
+
+work.children.create([
+  {name: "プレゼン(スライドショー)"}
+])
+
+oneday.children.create([
+  {name: "朝"},
+  {name: "昼"},
+  {name: "夜"}
+])
+
+place.children.create([
+  {name: "宇宙"},
+  {name: "都会"},
+  {name: "田舎"}
+])
+
+# 階層の深さ 4
+violent.children.create([
+  {name: "エキサイティング"},
+  {name: "情熱的"},
+  {name: "疾走感"},
+  {name: "バトル"},
+  {name: "パワフル"},
+  {name: "勇壮"}
+])
+
+gentle.children.create([
+  {name: "リラックス"},
+  {name: "ほのぼの"},
+  {name: "日常"},
+  {name: "温かい"},
+  {name: "優しい"},
+  {name: "華やか"},
+  {name: "おしゃれ"},
+  {name: "かわいい"},
+  {name: "コミカル"},
+  {name: "軽快"},
+  {name: "爽やか"}
+])
+
+dark.children.create([
+  {name: "哀愁感"},
+  {name: "ホラー"},
+  {name: "不気味"}
+])
+
+somethingelse.children.create([
+  {name: "オルゴール"},
+  {name: "口笛"},
+  {name: "コーラス"}
 ])

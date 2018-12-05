@@ -1,0 +1,8 @@
+- subs ||= nil
+
+- subs.each do |sub|
+  ul
+    li.line-hyphen= sub[0].name
+    - sub[1].keys.each do |child_node|
+      - child_node.subtree.arrange.each do |child_sub|
+        = render 'web/categories/recursive_subtree', subs: child_sub[1]

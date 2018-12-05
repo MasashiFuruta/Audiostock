@@ -1,0 +1,9 @@
+- ancestors ||= nil
+
+- ancestors.each do |ancestor, child|
+  <ul>
+    <li class=line-hyphen>
+      = ancestor.name
+      = render 'web/categories/recursive_ancestors', ancestors: child
+    </li>
+  </ul>
