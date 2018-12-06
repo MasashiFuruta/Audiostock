@@ -10,9 +10,8 @@ class Web::Categories::BgmController < WebController
   def show
     @id = params[:id]
     @node = Category.find(@id)
-    ancestors_all =  @node.ancestors
-    @root = (ancestors_all.to_a)[1]
-    @ancestors = @node.ancestors.from_depth(2).arrange
+    @root = (@node.ancestors.to_a)[1]
+    @path = @node.path.from_depth(2).arrange
     @children = @node.children
     render :template => 'web/categories/show'
   end

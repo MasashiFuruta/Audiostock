@@ -1,0 +1,29 @@
+- path ||= nil
+
+- path.each do |parent, child|
+  <ul>
+    <li class=line-hyphen>
+      - if @category == "bgm"
+        = link_to(parent.name, web_bgm_path(parent))
+      - elsif @category == "se"
+        = link_to(child.name, web_se_path(parent))
+      - elsif @category == "voice"
+        = link_to(child.name, web_voice_path(parent))
+      - elsif @category == "vocal"
+        = link_to(child.name, web_vocal_path(parent))
+      - if !child.empty?
+        = render 'web/categories/recursive_path', path: child
+      - else
+        ul
+        - @children.each do |child|
+          li.line-hyphen
+            - if @category == "bgm"
+              = link_to(child.name, web_bgm_path(child))
+            - elsif @category == "se"
+              = link_to(child.name, web_se_path(child))
+            - elsif @category == "voice"
+              = link_to(child.name, web_voice_path(child))
+            - elsif @category == "vocal"
+              = link_to(child.name, web_vocal_path(child))
+    </li>
+  </ul>

@@ -6,19 +6,14 @@
         ul
           li
             = @root.name
-            = render 'web/categories/recursive_ancestors', ancestors: @ancestors
-            ul
-              <li class=line-hyphen>
-                = link_to @node.name
-                - @children.each do |child|
-                  ul
-                    li.line-hyphen
-                      - if @category == "bgm"
-                        = link_to(child.name, web_bgm_path(child))
-                      - elsif @category == "se"
-                        = link_to(child.name, web_se_path(child))
-                      - elsif @category == "voice"
-                        = link_to(child.name, web_voice_path(child))
-                      - elsif @category == "vocal"
-                        = link_to(child.name, web_vocal_path(child))
-              </li>
+            = render 'web/categories/recursive_path', path: @path
+            /- @children.each do |child|
+            /  li.line-hyphen
+            /    - if @category == "bgm"
+            /      = link_to(child.name, web_bgm_path(child))
+            /    - elsif @category == "se"
+            /      = link_to(child.name, web_se_path(child))
+            /    - elsif @category == "voice"
+            /      = link_to(child.name, web_voice_path(child))
+            /    - elsif @category == "vocal"
+            /      = link_to(child.name, web_vocal_path(child))
